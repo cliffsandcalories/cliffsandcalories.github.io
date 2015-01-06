@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cliffs and Calories</title>
+
+    <!-- Bootstrap -->
+    <link href='http://fonts.googleapis.com/css?family=Loved+by+the+King' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+
+  <body>
+
+      <p>
+        <a class="btn btn-xs btn-default pull-right" href="http://paigederaedt.github.io/cliffsandcalories/calories" aria-label="Calories">
+          <img src="https://dl.dropboxusercontent.com/u/12786034/food.png" alt="Calories">
+        </a>
+        <a class="btn btn-xs btn-default pull-right" href="http://paigederaedt.github.io/cliffsandcalories/cliffs" aria-label="Cliffs">
+          <img src="https://dl.dropboxusercontent.com/u/12786034/tree.png" alt="Cliffs">
+        </a>
+      </p>
+
+    <div class="container">
+      <h1><a href="http://paigederaedt.github.io/cliffsandcalories/cliffs">Cliffs</a> and <a href="http://paigederaedt.github.io/cliffsandcalories/calories">Calories</a></h1>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  
+  </body>
+
+
+
+
+
+  <head>
+
+    <style type="text/css">
+      html, body, #googleMap { height: 500px; margin: 0; padding: 10px;}
+    </style>
+
+<script
+src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false">
+</script>
+
+<script>
+function initialize()
+{
+
+//MAP STYLE
+var styles = [
+  {
+    stylers: [
+      { color: "#ee7621" },
+      { lightness: 20 }
+    ]
+  },
+  {
+    featureType: 'water',
+    stylers: [
+      { color: "#FFFFFF" }
+    ]
+  },
+  {
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [
+      { lightness: 100 },
+      { visiblity: "simplified" }
+    ]
+  },
+  {
+    featureType: "poi.park",
+    elementType: "geometry.fill",
+    stylers: [
+      { color: '#71bc78' }
+    ]
+  },
+  {
+    featureType: "administrative.country",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  },
+  {
+    featureType: "administrative.province",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  },
+  {
+    featureType: "administrative.locality",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }, 
+  {
+    featureType: "administrative.province",
+    elementType: "geometry.stroke",
+    stylers: [
+      { color: "#006400" },
+      { visibility: "on" }
+    ]
+  },
+  {
+    featureType: "administrative.country",
+    elementType: "geometry.stroke",
+    stylers: [
+      { color: "#031614" },
+      { visibility: "on" }
+    ]
+  },
+];
+
+var mapOptions = {
+  center:new google.maps.LatLng(39.1067,-94.6764),
+  zoom:4,
+  mapTypeId:google.maps.MapTypeId.ROADMAP,
+  scrollwheel:false
+}
+
+var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+map.setOptions({styles: styles});
+
+
+//CALORIES
+
+//Red Iguana
+var RI = new google.maps.LatLng(40.771319, -111.911577);
+var imageRI = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerRI = new google.maps.Marker({
+      position: RI,
+      map: map,
+      icon: imageRI,
+      title: 'Red Iguana'
+  });
+var infoRI = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Red Iguana [Salt Lake City, UT 09_14_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>sour cream, chicken, and  avocado  enchiladas ' +
+      '<li type=disc>carnitas '+
+      '<li type=disc>sangria </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowRI = new google.maps.InfoWindow({
+      content: infoRI
+  });
+
+google.maps.event.addListener(markerRI, 'click', function() {
+      infowindowRI.open(map,markerRI);
+    });
+
+//End of Red Iguana
+
+//Copper Onion
+var CO = new google.maps.LatLng(40.762446, -111.887638);
+var imageCO = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerCO = new google.maps.Marker({
+      position: CO,
+      map: map,
+      icon: imageCO,
+      title: 'Copper Onion'
+  });
+var infoCO = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Copper Onion [Salt Lake City, UT 09_14_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>cheese cake ' +
+      '<li type=disc>panna cotta </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowCO = new google.maps.InfoWindow({
+      content: infoCO
+  });
+
+google.maps.event.addListener(markerCO, 'click', function() {
+      infowindowCO.open(map,markerCO);
+    });
+
+//End of Copper Onion
+
+//Eva
+var Eva = new google.maps.LatLng(40.761713, -111.890769);
+var imageEva = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerEva = new google.maps.Marker({
+      position: Eva,
+      map: map,
+      icon: imageEva,
+      title: 'Eva'
+  });
+var infoEva = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Eva [Salt Lake City, UT 09_12_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>butter lettuce salad ' +
+      '<li type=disc>lamb kibbeh ' +
+      '<li type=disc>baked greek mac and cheese </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowEva = new google.maps.InfoWindow({
+      content: infoEva
+  });
+
+google.maps.event.addListener(markerEva, 'click', function() {
+      infowindowEva.open(map,markerEva);
+    });
+
+//End of Eva
+
+//Flying Carpet
+var FC = new google.maps.LatLng(30.241442, -97.758147);
+var imageFC = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerFC = new google.maps.Marker({
+      position: FC,
+      map: map,
+      icon: imageFC,
+      title: 'Flying Carpet'
+  });
+var infoFC = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Flying Carpet [Austin, TX 05_06_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>gran slata ' +
+      '<li type=disc>the big abdu ' +
+      '<li type=disc>the sleek vegetarian ' +
+      '<li type=disc>mejool date </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowFC = new google.maps.InfoWindow({
+      content: infoFC
+  });
+
+google.maps.event.addListener(markerFC, 'click', function() {
+      infowindowFC.open(map,markerFC);
+    });
+
+//End of Flying Carpet
+
+//Tacodeli
+var TD = new google.maps.LatLng(30.257786, -97.786460);
+var imageTD = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerTD = new google.maps.Marker({
+      position: TD,
+      map: map,
+      icon: imageTD,
+      title: 'Tacodeli'
+  });
+var infoTD = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Taco Deli [Austin, TX 05_03_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>deli belly ' +
+      '<li type=disc>frontera fundido chicken ' +
+      '<li type=disc>pollo fantastico ' +
+      '<li type=disc>papadulce ' +
+      '<li type=disc>queso ' +
+      '<li type=disc>guacamole </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowTD = new google.maps.InfoWindow({
+      content: infoTD
+  });
+
+google.maps.event.addListener(markerTD, 'click', function() {
+      infowindowTD.open(map,markerTD);
+    });
+
+//End of Tacodeli
+
+//Odd Duck
+var OD = new google.maps.LatLng(30.255108, -97.762283);
+var imageOD = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerOD = new google.maps.Marker({
+      position: OD,
+      map: map,
+      icon: imageOD,
+      title: 'Odd Duck'
+  });
+var infoOD = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Odd Duck [Austin, TX 05_04_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>parker house rolls, pig head ' +
+      '<li type=disc>brussel sprouts, deviled egg spread ' +
+      '<li type=disc>baked spaetzle, gulf oysters, bacon, artichoke cream ' +
+      '<li type=disc>black olive pasta, braised goat, sage, parmesan ' +
+      '<li type=disc>white sangria </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowOD = new google.maps.InfoWindow({
+      content: infoOD
+  });
+
+google.maps.event.addListener(markerOD, 'click', function() {
+      infowindowOD.open(map,markerOD);
+    });
+
+//End of Odd Duck
+
+//Gourdough's
+var Gordo = new google.maps.LatLng(30.250197, -97.754987);
+var imageGordo = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerGordo = new google.maps.Marker({
+      position: Gordo,
+      map: map,
+      icon: imageGordo,
+      title: 'Gourdough\'s'
+  });
+var infoGordo = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Gourdough\'s [Austin, TX 05_04_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>funky monkey </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowGordo = new google.maps.InfoWindow({
+      content: infoGordo
+  });
+
+google.maps.event.addListener(markerGordo, 'click', function() {
+      infowindowGordo.open(map,markerGordo);
+    });
+
+//End of Gourdough's
+
+//Veracruz All Natural
+var Veracruz = new google.maps.LatLng(30.257995, -97.726740);
+var imageVeracruz = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerVeracruz = new google.maps.Marker({
+      position: Veracruz,
+      map: map,
+      url: 'http://cliffsandcalories.weebly.com/2/post/2014/05/veracruz-all-natural.html',
+      icon: imageVeracruz,
+      title: 'Veracruz All Natural'
+  });
+var infoVeracruz = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Veracruz All Natural [Austin, TX 05_05_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>guacamole ' +
+      '<li type=disc>migas ' +
+      '<li type=disc>al pastor </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowVeracruz = new google.maps.InfoWindow({
+      content: infoVeracruz
+  });
+
+google.maps.event.addListener(markerVeracruz, 'click', function() {
+      infowindowVeracruz.open(map,markerVeracruz);
+    });
+
+//End of Veracruz All Natural
+
+//Masala Dhaba
+var MasalaDhaba = new google.maps.LatLng(30.259108,-97.738782);
+var imageMasalaDhaba = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerMasalaDhaba = new google.maps.Marker({
+      position: MasalaDhaba,
+      map: map,
+      icon: imageMasalaDhaba,
+      title: 'Masala Dhaba'
+  });
+var infoMasalaDhaba = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Masala Dhaba [Austin, TX 02_15_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>dal fry ' +
+      '<li type=disc>samosas ' +
+      '<li type=disc>chicken tikka masala </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowMasalaDhaba = new google.maps.InfoWindow({
+      content: infoMasalaDhaba
+  });
+
+google.maps.event.addListener(markerMasalaDhaba, 'click', function() {
+      infowindowMasalaDhaba.open(map,markerMasalaDhaba);
+    });
+
+//End of Masala Dhaba
+
+//Tapas Bravas
+var TapasBravas = new google.maps.LatLng(30.259265,-97.738725);
+var imageTapasBravas = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerTapasBravas = new google.maps.Marker({
+      position: TapasBravas,
+      map: map,
+      icon: imageTapasBravas,
+      title: 'Tapas Bravas'
+  });
+var infoTapasBravas = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Tapas Bravas [Austin, TX 02_15_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>fried artichokes ' +
+      '<li type=disc>goat cheese stuffed peppers ' +
+      '<li type=disc>mini chorizos </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowTapasBravas = new google.maps.InfoWindow({
+      content: infoTapasBravas
+  });
+
+google.maps.event.addListener(markerTapasBravas, 'click', function() {
+      infowindowTapasBravas.open(map,markerTapasBravas);
+    });
+
+//End of Tapas Bravas
+
+//South Congress Cafe
+var CongressCafe = new google.maps.LatLng(30.248127,-97.750408);
+var imageCongressCafe = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerCongressCafe = new google.maps.Marker({
+      position: CongressCafe,
+      map: map,
+      icon: imageCongressCafe,
+      title: 'South Congress Cafe'
+  });
+var infoCongressCafe = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>South Congress Cafe [Austin, TX 02_16_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>carrot cake french toast and venison sausage ' +
+      '<li type=disc>goat cheese and bacon omlette ' +
+      '<li type=disc>fresh squeezed orange juice </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowCongressCafe = new google.maps.InfoWindow({
+      content: infoCongressCafe
+  });
+
+google.maps.event.addListener(markerCongressCafe, 'click', function() {
+      infowindowCongressCafe.open(map,markerCongressCafe);
+    });
+
+//End of South Congress Cafe
+
+//Whip In
+var WhipIn = new google.maps.LatLng(30.238424,-97.738985);
+var imageWhipIn = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerWhipIn = new google.maps.Marker({
+      position: WhipIn,
+      map: map,
+      icon: imageWhipIn,
+      title: 'Whip In'
+  });
+var infoWhipIn = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Whip In [Austin, TX 02_16_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>goat sliders ' +
+      '<li type=disc>lamb taco salad </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowWhipIn = new google.maps.InfoWindow({
+      content: infoWhipIn
+  });
+
+google.maps.event.addListener(markerWhipIn, 'click', function() {
+      infowindowWhipIn.open(map,markerWhipIn);
+    });
+
+//End of Whip In
+
+//Yuca
+var Yuca = new google.maps.LatLng(25.790376,-80.132967);
+var imageYuca = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerYuca = new google.maps.Marker({
+      position: Yuca,
+      map: map,
+      icon: imageYuca,
+      title: 'Yuca'
+  });
+var infoYuca = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Yuca [Miami, FL 01_18_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>cuban pork ' +
+      '<li type=disc>lobster mash ' +
+      '<li type=disc>garlic broccolini ' +
+      '<li type=disc>pina colada </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowYuca = new google.maps.InfoWindow({
+      content: infoYuca
+  });
+
+google.maps.event.addListener(markerYuca, 'click', function() {
+      infowindowYuca.open(map,markerYuca);
+    });
+
+//End of Yuca
+
+//Ritz
+var Ritz = new google.maps.LatLng(25.790476,-80.128667);
+var imageRitz = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerRitz = new google.maps.Marker({
+      position: Ritz,
+      map: map,
+      icon: imageRitz,
+      title: 'Ritz Carlton - Dilido Beach Club'
+  });
+var infoRitz = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Ritz Carlton - Dilido Beach Club [Miami, FL 01_18_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>berry mojito ' +
+      '<li type=disc>sangria </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowRitz = new google.maps.InfoWindow({
+      content: infoRitz
+  });
+
+google.maps.event.addListener(markerRitz, 'click', function() {
+      infowindowRitz.open(map,markerRitz);
+    });
+
+//End of Ritz
+
+//Serendipity
+var Serendipity = new google.maps.LatLng(25.790176,-80.139895);
+var imageSerendipity = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerSerendipity = new google.maps.Marker({
+      position: Serendipity,
+      map: map,
+      icon: imageSerendipity,
+      title: 'Serendipity'
+  });
+var infoSerendipity = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Serendipity [Miami, FL 01_18_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>fried cookies and cream sundae </ul> ' +
+      '</div>'+
+      '</div>';
+var infowindowSerendipity = new google.maps.InfoWindow({
+      content: infoSerendipity
+  });
+
+google.maps.event.addListener(markerSerendipity, 'click', function() {
+      infowindowRitz.open(map,markerSerendipity);
+    });
+
+//End of Serendipity
+
+//Lou Malnati's
+var LouM = new google.maps.LatLng(41.911032,-87.640453);
+var imageLouM = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerLouM = new google.maps.Marker({
+      position: LouM,
+      map: map,
+      icon: imageLouM,
+      title: 'Lou Malnati\'s Pizza'
+  });
+var infoLouM = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Lou Malnati\'s Pizza [Chicago, IL 12_28_2013]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>malnati\'s classic deep dish </ul> ' +
+      '</div>'+
+      '</div>';
+var infowindowLouM = new google.maps.InfoWindow({
+      content: infoLouM
+  });
+
+google.maps.event.addListener(markerLouM, 'click', function() {
+      infowindowLouM.open(map,markerLouM);
+    });
+
+//End of Lou Malnati's
+
+//La Note
+
+var LaN = new google.maps.LatLng(37.866356,-122.268076);
+var imageLaN = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerLaN = new google.maps.Marker({
+      position: LaN,
+      map: map,
+      icon: imageLaN,
+      title: 'La Note'
+  });
+var infoLaN = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>La Note [Berkeley, CA 12_07_2013]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>brioche pain perdu ' +
+      '<li type=disc>baguette au brie ' +
+      '<li type=disc>chocolate cream puff </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowLaN = new google.maps.InfoWindow({
+      content: infoLaN
+  });
+
+google.maps.event.addListener(markerLaN, 'click', function() {
+      infowindowLaN.open(map,markerLaN);
+    });
+
+//End of La Note
+
+//Kamdesh Afghan Kabob House
+var Kamdesh = new google.maps.LatLng(37.803810,-122.269330);
+var imageKamdesh = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerKamdesh = new google.maps.Marker({
+      position: Kamdesh,
+      map: map,
+      icon: imageKamdesh,
+      title: 'Kamdesh Afghan Kabob House'
+  });
+var infoKamdesh = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Kamdesh Afghan Kabob House [Oakland, CA 09_21_2013]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>eggplant ' +
+      '<li type=disc>lamb kabob </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowKamdesh = new google.maps.InfoWindow({
+      content: infoKamdesh
+  });
+
+google.maps.event.addListener(markerKamdesh, 'click', function() {
+      infowindowKamdesh.open(map,markerKamdesh);
+    });
+
+//End of Kamdesh Afghan Kabob House
+
+//Scopa Restaurant
+var Scopa = new google.maps.LatLng(38.611227,-122.870100);
+var imageScopa = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerScopa = new google.maps.Marker({
+      position: Scopa,
+      map: map,
+      icon: imageScopa,
+      title: 'Scopa Restaurant'
+  });
+var infoScopa = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Scopa [Healdsburg, CA 09_20_2013]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>chocolate creme brulee </ul> ' +
+      '</div>'+
+      '</div>';
+var infowindowScopa = new google.maps.InfoWindow({
+      content: infoScopa
+  });
+
+google.maps.event.addListener(markerScopa, 'click', function() {
+      infowindowScopa.open(map,markerScopa);
+    });
+
+//End of Scopa Restaurant
+
+//Zingerman's
+var Zingermans = new google.maps.LatLng(42.281983,-83.765617);
+var imageZingermans = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerZingermans = new google.maps.Marker({
+      position: Zingermans,
+      map: map,
+      icon: imageZingermans,
+      title: 'Zingerman\'s Roadhouse'
+  });
+var infoZingermans = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Zingerman\'s [Ann Arbor, MI 08_13_2013]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>sweet potato fries ' +
+      '<li type=disc>mac n cheese ' +
+      '<li type=disc>pulled pork </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowZingermans = new google.maps.InfoWindow({
+      content: infoZingermans
+  });
+
+google.maps.event.addListener(markerZingermans, 'click', function() {
+      infowindowZingermans.open(map,markerZingermans);
+    });
+
+//End of Zingerman's
+
+//Boot and Shoe Service
+var BootShoe = new google.maps.LatLng(37.813504,-122.247417);
+var imageBootShoe = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerBootShoe = new google.maps.Marker({
+      position: BootShoe,
+      map: map,
+      url: 'http://cliffsandcalories.weebly.com/2/post/2013/07/boot-and-shoe-service.html',
+      icon: imageBootShoe,
+      title: 'Boot and Shoe Service'
+  });
+var infoBootShoe = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Boot and Shoe Service [Oakland, CA 07_20_2013]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>arugula and prociutto pizza ' +
+      '<li type=disc>fried rabbit </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowBootShoe = new google.maps.InfoWindow({
+      content: infoBootShoe
+  });
+
+google.maps.event.addListener(markerBootShoe, 'click', function() {
+      infowindowBootShoe.open(map,markerBootShoe);
+    });
+
+//End of Boot and Shoe Service
+
+//Bar Cesar
+var BarCesar = new google.maps.LatLng(37.826185,-122.253843);
+var imageBarCesar = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerBarCesar = new google.maps.Marker({
+      position: BarCesar,
+      map: map,
+      url: 'http://cliffsandcalories.weebly.com/2/post/2013/07/bar-cesar.html',
+      icon: imageBarCesar,
+      title: 'Bar Cesar'
+  });
+var infoBarCesar = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Bar Cesar [Oakland, CA 07_13_2013]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>paella ' +
+      '<li type=disc>fried plantains ' +
+      '<li type=disc>romaine salad </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowBarCesar = new google.maps.InfoWindow({
+      content: infoBarCesar
+  });
+
+google.maps.event.addListener(markerBarCesar, 'click', function() {
+      infowindowBarCesar.open(map,markerBarCesar);
+    });
+
+//End of Bar Cesar
+//Big Star
+var BigStar = new google.maps.LatLng(41.909285,-87.677542);
+var imageBigStar = 'https://dl.dropboxusercontent.com/u/12786034/food.png';
+var markerBigStar = new google.maps.Marker({
+      position: BigStar,
+      map: map,
+      url: 'http://cliffsandcalories.weebly.com/2/post/2013/04/big-star.html',
+      icon: imageBigStar,
+      title: 'Big Star'
+  });
+var infoBigStar = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Big Star [Chicago, IL 04_14_2013]</h3>'+
+      '<div id="bodyContent">'+
+      '<ul><li type=disc>margaritas ' +
+      '<li type=disc>taco de panza ' +
+      '<li type=disc>taco de pollo </ul>'+
+      '</div>'+
+      '</div>';
+var infowindowBigStar = new google.maps.InfoWindow({
+      content: infoBigStar
+  });
+
+google.maps.event.addListener(markerBigStar, 'click', function() {
+      infowindowBigStar.open(map,markerBigStar);
+    });
+
+//End of Big Star
+//END OF CALORIES
+
+//CLIFFS
+
+//Mendocino
+var imageMendocino = 'https://dl.dropboxusercontent.com/u/12786034/tree.png'
+var Mendocino = new google.maps.LatLng(39.395955,-123.349435);
+var markerMendocino = new google.maps.Marker({
+      position: Mendocino,
+      map: map,
+      icon: imageMendocino,
+      title: 'Mendocino County'
+  });
+var infoMendocino = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Wine country [Mendocino County, CA 09_21_2013]</h3>'+
+      '<div id="bodyContent">'+
+      '<p>We got drunk - don\'t worry, we had a driver. </p> ' +
+      '</div>'+
+      '</div>';
+var infowindowMendocino = new google.maps.InfoWindow({
+      content: infoMendocino
+  });
+
+google.maps.event.addListener(markerMendocino, 'click', function() {
+      infowindowMendocino.open(map,markerMendocino);
+    });
+
+//End of Mendocino
+
+//Emerald Bay
+var imageEB = 'https://dl.dropboxusercontent.com/u/12786034/tree.png'
+var EmeraldBay = new google.maps.LatLng(38.955949,-119.945515);
+var markerEmeraldBay = new google.maps.Marker({
+      position: EmeraldBay,
+      map: map,
+      icon: imageEB,
+      title: 'South Lake Tahoe'
+  });
+var infoEmeraldBay = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Emerald Bay State Park [South Lake Tahoe, CA 06_11_2013]</h3>'+
+      '<div id="bodyContent">'+
+      '<p>We traveled to Lake Tahoe and visited Emerald Bay State Park. </p> ' +
+      '</div>'+
+      '</div>';
+var infowindowEmeraldBay = new google.maps.InfoWindow({
+      content: infoEmeraldBay
+  });
+
+google.maps.event.addListener(markerEmeraldBay, 'click', function() {
+      infowindowEmeraldBay.open(map,markerEmeraldBay);
+    });
+
+//End of Emerald Bay
+
+//North Lake Tahoe
+var imageNorthLT = 'https://dl.dropboxusercontent.com/u/12786034/tree.png'
+var NorthLT = new google.maps.LatLng(39.285497,-120.108372);
+var markerNorthLT = new google.maps.Marker({
+      position: NorthLT,
+      map: map,
+      icon: imageNorthLT,
+      title: 'North Lake Tahoe'
+  });
+var infoNorthLT = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>North Star Resort [North Lake Tahoe, CA 03_03_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<p>Dropbox hosted their annual trip to Lake Tahoe! </p> ' +
+      '</div>'+
+      '</div>';
+var infowindowNorthLT = new google.maps.InfoWindow({
+      content: infoNorthLT
+  });
+
+google.maps.event.addListener(markerNorthLT, 'click', function() {
+      infowindowNorthLT.open(map,markerNorthLT);
+    });
+
+//End of North Lake Tahoe
+
+//Hamilton Pool
+var imageHamPool = 'https://dl.dropboxusercontent.com/u/12786034/tree.png'
+var HamPool = new google.maps.LatLng(30.333464,-98.119572);
+var markerHamPool = new google.maps.Marker({
+      position: HamPool,
+      map: map,
+      icon: imageHamPool,
+      title: 'Hamilton Pool'
+  });
+var infoHamPool = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Hamilton Pool [Dripping Springs, TX 05_05_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<p>We took a day trip on Cinco de Mayo! </p> ' +
+      '</div>'+
+      '</div>';
+var infowindowHamPool = new google.maps.InfoWindow({
+      content: infoHamPool
+  });
+
+google.maps.event.addListener(markerHamPool, 'click', function() {
+      infowindowHamPool.open(map,markerHamPool);
+    });
+
+//End of Hamilton Pool
+
+//Arches National Park
+var imageANP = 'https://dl.dropboxusercontent.com/u/12786034/tree.png'
+var ANP = new google.maps.LatLng(38.6833,-109.5667);
+var markerANP = new google.maps.Marker({
+      position: ANP,
+      map: map,
+      icon: imageANP,
+      title: 'Arches National Park'
+  });
+var infoANP = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Arches National Park [Moab, UT 09_13_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<p>Our first National Park together! </p> ' +
+      '</div>'+
+      '</div>';
+var infowindowANP = new google.maps.InfoWindow({
+      content: infoANP
+  });
+
+google.maps.event.addListener(markerANP, 'click', function() {
+      infowindowANP.open(map,markerANP);
+    });
+
+//End of Arches National Park
+
+//Canyonlands National Park
+var imageCNP = 'https://dl.dropboxusercontent.com/u/12786034/tree.png'
+var CNP = new google.maps.LatLng(38.1669,-109.7597);
+var markerCNP = new google.maps.Marker({
+      position: CNP,
+      map: map,
+      icon: imageCNP,
+      title: 'Canyonlands National Park'
+  });
+var infoCNP = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3>Canyonlands National Park [Moab, UT 09_14_2014]</h3>'+
+      '<div id="bodyContent">'+
+      '<p>We hit two national parks in one weekend! </p> ' +
+      '</div>'+
+      '</div>';
+var infowindowCNP = new google.maps.InfoWindow({
+      content: infoCNP
+  });
+
+google.maps.event.addListener(markerCNP, 'click', function() {
+      infowindowCNP.open(map,markerCNP);
+    });
+
+//End of Canyonlands National Park
+
+//END OF CLIFFS
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<div class="container">
+<body>
+<div id="googleMap"></div>
+</body>
+</div>
+
+<div class="container">
+  <h1 id="blog">...and stories</h1>
+
+<div class="row">
+  <div class="col-sm-12 blog-main">
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">Our First National Parks</h2>
+        <p class="blog-post-meta">September 14, 2014 /RC</p>
+          <p>RC volunteered to write this post, but we'll see if it happens ;)</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widearchescouple.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widearchpaige.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widearchricky.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_wideclimbricky.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widecouple2.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widecouple3.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widelayingricky.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widelookpaige.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widepaige.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widecanyonlands.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widemesa.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widecanyon.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widemesafeet.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widemesapaige.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/natparks_widemesaricky.jpg">
+            </div>
+          </div>
+    </div><!-- /.blog-post --> 
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">Say hello to our little (big) friend</h2>
+        <p class="blog-post-meta">May 7, 2014 /PD</p>
+          <p>During my second visit to Austin, RC and I packed in a lot of food and adventure. It was Cinco de Mayo weekend, so the town was bustling with activity. We checked out the Pecan street festival and watched one of the largest bat colonies fly out across the river from their home under a bridge. Later on, we went on an "urban hike" to get to the Odd Duck for dinner, where we ran into a small wildflower pathway leading to some pretty sweet biking courses. On Cinco de Mayo, we headed to Hamilton Pool. After waiting an hour to get into the park, we finally jumped into the freezing waters and swam through some waterfalls. RC felt like he may have been dying throughout the whole experience. Just as we were about to head out, we ran into our little friend, a cotton mouth water snake (later found out to be venomous), chilling right near the rock where we were rinsing off. Before leaving Austin, we made it to a few more food carts, including the famous Gourdough's! The trip had a bittersweet ending with my flight getting cancelled. I had to miss a day of work, but it was nice to spend another day in Austin!</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/littlefriend_widecouple1.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/littlefriend_widecouple3.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/littlefriend_widepaige.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/littlefriend_wideoddduck.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/littlefriend_widecouple4.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/littlefriend_widehampool.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/littlefriend_wide.JPG">
+            </div>
+          </div>
+    </div><!-- /.blog-post --> 
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">Triple Black Diamond Threat</h2>
+        <p class="blog-post-meta">March 3, 2014 /PD</p>
+          <div class="row">
+            <div class="col-sm-8">
+              <p>Dropbox hosted their annual trip to Lake Tahoe at the Northstar resort. As usual, they did not fail to impress. Custom made luggage tags, wristbands, and winter hats were only a few of the many perks, not to mention the hospitality houses. After a long bus ride on Friday, everybody headed to the notorious houses for a night to remember...or forget. They were stocked with everything you could think of to ensure a "good time". Saturday was spent skiing in the perfect weather, it was RC's first experience. After only a few (check out the video) wipeouts, he graduated from the bunny hill to a green slope. We managed to sneak our way on to a noon bus on Sunday, making it back to San Francisco in time to tour the Yerba Buena Art Center before catching red eyes back to Austin and Ft. Lauderdale.</p>
+            </div>
+            <div class="col-sm-4">
+              <iframe width="420" height="315" src="//www.youtube.com/embed/vpkxss4Ky-c" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/skiing_widecouple1.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/skiing_widecouple2.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/skiing_widecouple3.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/skiing_widepaige.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/skiing_widericky.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/skiing_widemuseumricky.jpg">
+            </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/skiing_tallflowerpaige.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/skiing_tallpaige.jpg">
+            </div>
+          </div>
+    </div><!-- /.blog-post --> 
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">Getting Weird in Austin</h2>
+        <p class="blog-post-meta">February 17, 2014 /PD</p>
+          <p>Austin just got a little weirder: food, food, and food are the 3 words that describe my visit to RC for Valentine's Day/long weekend, and also his first weekend in his new home of Austin, TX. We started off the weekend at the Barton Creek Greenbelt. Despite the name, it wasn't very green...we walked through the trails and had a relaxing picnic from the Live Oak Market on the rock ledges. Later that night we explored the food carts of Austin, enjoying some tapas and pretty amazing Indian food, ending the night with some Amy's ice cream. The next day, we ate some incredible carrot cake french toast for brunch. Finally, we made it to Whip In for some Indian-inspired Tex-Mex and live music. After all this food, it was time to visit some rescue cats at Petco, RC's  favorite part of the whole trip!</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/weirdinaustin_widebartoncreek.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/weirdinaustin_widefeet.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/weirdinaustin_widehands.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/weirdinaustin_widericky.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/weirdinaustin_widerock.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/weirdinaustin_widewhipin.JPG">
+            </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/weirdinaustin_tallpaige.JPG">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/weirdinaustin_tallcat.jpg">
+            </div>
+          </div>
+    </div><!-- /.blog-post --> 
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">The Real Ricardo</h2>
+        <p class="blog-post-meta">January 1, 2014 /PD</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/newyears.jpg">
+            </div>
+            <div class="col-sm-8">
+              <p>RC and I spent New Years Eve together in Chicago. After our train got delayed due to some snowy weather and mid trip power outages (don't worry, alcohol was allowed on board!), we finally made it to the city. After receiving some surprising special attention as we walked into The Shrine, we were directed to the VIP section of the club....what? Did we get upgraded? How long with this last?...well, about 10 minutes. Shortly after spilling food all over the VIP booth, the real "Ricardo" showed up (the club confused RC's name) and claimed his spot. We spent the rest of the night in the standing room only section where we belonged, listening to a mix of comedy and live music until sharing a champagne toast at midnight.</p>
+            </div>
+          </div>
+    </div><!-- /.blog-post --> 
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">Christmas Time is Here</h2>
+        <p class="blog-post-meta">December 7, 2013 /PD</p>
+          <p>RC and I went to Dropbox's Great Gatsby themed holiday party at the Palace Hotel. We pre-gamed at his coworker's beautiful downtown apartment and then headed to the party. After enjoying the open bar, trying all the delicious food, and spamming the photobooth, we hit the dance floor. We ended the night with climbing on top of the foyer table, stealing beads off the leopard statue, and throwing them to spectators below (or at least we think that's what happened...) Despite getting ditched by our driver, this was one of the best nights I've ever had.</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/2013holidayparty_widecouple2.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/2013holidayparty_widecouple1.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/2013holidayparty_widecouple3.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/2013holidayparty_DBHP1.jpeg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/2013holidayparty_DBHP2.jpeg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/2013holidaypartyDBHP3.jpeg">
+            </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/2013holidayparty_tallcouple1.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/2013holidayparty_tallcouple2.jpg">
+            </div>
+          </div>
+    </div><!-- /.blog-post --> 
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">What is up with Florida?...we just don't know!</h2>
+        <p class="blog-post-meta" font-weight="bold">November 2, 2013 /PD</p>
+          <p>RC came to visit for the first time since I moved to Florida! After meeting his cat counterpart, Ricky, we spent some time relaxing at Pompano Beach where RC learned how much he loves when fish nibble on his toes. We attempted to go to Flamingo Gardens (closed...better luck next time), but ended up at the Everglades. While alligators were in short supply, cats and peacocks were not! RC still can't figure out what's so weird about Florida...maybe it's the senior citizens?</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/florida_widebeach.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/florida_widericky.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/florida_widericky2.JPG">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/florida_tallcouple.png">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/florida_tallricky.png">
+            </div>
+          </div>
+    </div><!-- /.blog-post -->
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">Wine Country and the Best Reggae Band Ever</h2>
+        <p class="blog-post-meta">September 21, 2013 /PD</p>
+          <p>I visited RC before moving to Florida to start my new job at Citrix. We visited the hipster version of wine country...a.k.a. Mendocino County. On our way there, we stopped in Healdsburg for dinner and had the best dessert I've tasted to date: chocolate creme brulee...check out the photo below, no words to describe. After getting drunk at a few wineries (don't worry, we had a craigslist driver who surprisingly didn't murder us), hanging out at Mendocino National Forest, kayaking through caves, and eating some chocolate covered insects, we headed back to San Francisco. After having some amazing eggplant at Kamdesh Afghan Kabab House, we unexpectedly happened upon the BEST REGGAE CONCERT EVER, at least according to the bouncer...lots of dancing, drinks, and saying no to drugs definitely made it a memorable night.</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/winecountry_widecouple1.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/winecountry_widecouple2.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/winecountry_widepaige.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/winecountry_widericky.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/winecountry_widepaigeinsects.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/winecountry_widerickyinsects.jpg">
+            </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/winecountry_tallinsects.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/winecountry_tallrickyinsects.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/winecountry_tallpaigewoods.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/winecountry_tallrickywoods.jpg">
+            </div>
+          </div>
+    </div><!-- /.blog-post --> 
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">The "Naked" Hike</h2>
+        <p class="blog-post-meta">June 9, 2013 /PD</p>
+          <p>I visited RC for the first time since he moved to San Francisco to work at the place with the most first world problems on the planet, Dropbox! We spent a weekend in Lake Tahoe, visited Emerald Bay State Park and spent some time at the beach. Unfortunately my shorts were shorter than my coat...hence the naked hike title!</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/nakedhike_wide1.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/nakedhike_widecouple1.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/nakedhike_widewaterfall.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/nakedhike_widecouple2.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/nakedhike_widescenery.jpg">
+            </div>
+            <div class="col-sm-4">
+              <img id="img_box_3" src="https://paigederaedt.github.io/cliffsandcalories/assets/nakedhike_widepaige.jpg">
+            </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/nakedhike_tallricky.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/nakedhike_talldesolation.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/nakedhike_tallcouple1.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/nakedhike_tallwaterfall.jpg">
+            </div>
+          </div>
+    </div><!-- /.blog-post --> 
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">Cat Camera</h2>
+        <p class="blog-post-meta">April 13, 2013 /PD</p>
+          <p>RC's sister gave me a disposable camera that imposes cat themed images on top of all the photos...enough said! THANK YOU!</p>
+          <div class="row">
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/bromance17.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/gracie1.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/drunk19.jpg">
+            </div>
+            <div class="col-sm-3">
+              <img id="img_box" src="https://paigederaedt.github.io/cliffsandcalories/assets/grad4.jpg">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <img id="img_box_2" src="https://paigederaedt.github.io/cliffsandcalories/assets/cute18.jpg">
+            </div>
+            <div class="col-sm-6">
+              <img id="img_box_2" src="https://paigederaedt.github.io/cliffsandcalories/assets/booth8.jpg">
+            </div>
+          </div>
+    </div><!-- /.blog-post -->         
+
+  </div>
+</div>
+
+
+</div>
+
+</html>
